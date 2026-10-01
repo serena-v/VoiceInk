@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-15
+    runs-on: macos-26
     timeout-minutes: 60
 
     steps:
@@ -27,9 +27,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/VoiceInk-Dependencies
-          key: ${{ runner.os }}-voiceink-deps-${{ hashFiles('Makefile') }}
+          key: macos26-voiceink-deps-${{ hashFiles('Makefile') }}
           restore-keys: |
-            ${{ runner.os }}-voiceink-deps-
+            macos26-voiceink-deps-
 
       - name: Build VoiceInk
         run: make local LOCAL_CODESIGN_IDENTITY=-
